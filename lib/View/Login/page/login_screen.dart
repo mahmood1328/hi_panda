@@ -1,10 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:hi_panda/View/Login/page/privacy_page.dart';
-import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
-import 'package:webview_flutter/webview_flutter.dart';
-
-import '../../../Network/service_url.dart';
 import '../../../Widget/snackbar.dart';
 import '../../../utils/const.dart';
 import '../../../utils/res/colors.dart';

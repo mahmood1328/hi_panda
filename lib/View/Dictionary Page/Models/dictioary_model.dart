@@ -11,20 +11,32 @@ String dictionaryModelToJson(DictionaryModel data) => json.encode(data.toJson())
 
 class DictionaryModel {
   DictionaryModel({
-    required this.pronounceVoiceUrl,
+    required this.baseKeywordSelected,
+    required this.prononceUk,
+    required this.prononeUs,
+    required this.htmlResult,
     required this.translates,
   });
 
-  final String pronounceVoiceUrl;
+  final String baseKeywordSelected;
+  final String prononceUk;
+  final String prononeUs;
+  final String htmlResult;
   final List<Translate> translates;
 
   factory DictionaryModel.fromJson(Map<String, dynamic> json) => DictionaryModel(
-    pronounceVoiceUrl: json["pronounceVoiceUrl"],
+    baseKeywordSelected: json["baseKeywordSelected"],
+    prononceUk: json["prononceUK"],
+    prononeUs: json["prononeUS"],
+    htmlResult: json["htmlResult"],
     translates: List<Translate>.from(json["translates"].map((x) => Translate.fromJson(x))),
   );
 
   Map<String, dynamic> toJson() => {
-    "pronounceVoiceUrl": pronounceVoiceUrl,
+    "baseKeywordSelected": baseKeywordSelected,
+    "prononceUK": prononceUk,
+    "prononeUS": prononeUs,
+    "htmlResult": htmlResult,
     "translates": List<dynamic>.from(translates.map((x) => x.toJson())),
   };
 }
@@ -32,23 +44,15 @@ class DictionaryModel {
 class Translate {
   Translate({
     required this.text,
-    required this.descript,
-    required this.pronounceVoiceUrl,
   });
 
   final String text;
-  final String descript;
-  final String pronounceVoiceUrl;
 
   factory Translate.fromJson(Map<String, dynamic> json) => Translate(
     text: json["text"],
-    descript: json["descript"],
-    pronounceVoiceUrl: json["pronounceVoiceUrl"],
   );
 
   Map<String, dynamic> toJson() => {
     "text": text,
-    "descript": descript,
-    "pronounceVoiceUrl": pronounceVoiceUrl,
   };
 }

@@ -25,16 +25,16 @@ class ChatPage extends StatelessWidget {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      height:80,
-                      width:SizeConfig.screenWidth,
-                      decoration: const BoxDecoration(
-                        color: ColorsApp.primary,
-                        borderRadius:BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
-                        //border: Border.all(width: 1,color: ColorsApp.primaryLight.withOpacity(0.3))
-
-                      ),
-                    ),
+                    // Container(
+                    //   height:80,
+                    //   width:SizeConfig.screenWidth,
+                    //   decoration: const BoxDecoration(
+                    //     color: ColorsApp.primary,
+                    //     borderRadius:BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
+                    //     //border: Border.all(width: 1,color: ColorsApp.primaryLight.withOpacity(0.3))
+                    //
+                    //   ),
+                    // ),
                     const SizedBox(height: 20,),
                     Container(
                       padding:const EdgeInsets.only(top: 12,bottom: 12,right: 15,left: 15),

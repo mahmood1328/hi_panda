@@ -10,7 +10,9 @@ import '../../../Widget/modal_logout.dart';
 import '../../../utils/dialog.dart';
 import '../../../utils/res/colors.dart';
 import '../Model/courses_detail.dart';
+import '../Model/get_pdf_book_details_model.dart';
 import '../Model/my_courses_model.dart';
+import '../page/detail_book_pdf.dart';
 import '../page/detail_courses.dart';
 import '../page/detail_music.dart';
 
@@ -32,6 +34,7 @@ class CoursesController extends GetxController{
   var titleIndex="".obs;
   MyCoursesModel? myCoursesModel;
   MyCoursesDetailModel? myCoursesDetailModel;
+  GetBookAndPdfDetailModel? getBookAndPdfDetailModel;
 
 getId(int id){
   idCat.value=id;
@@ -172,6 +175,32 @@ getId(int id){
 
           myCoursesDetailModel=value;
           listMyCoursesDetail.addAll(value.terms);
+          removeProgress();
+
+        }
+      } catch (e) {
+        removeProgress();
+      }
+    }).catchError((value) {
+      removeProgress();
+      //print(value);
+
+    });
+  }
+
+
+  getMyCoursesDetailBookAndPdf(int id,int pId,int type,String image,BuildContext context,bool isBuy) async {
+    isLoadingDetail.value=false;
+    listMyCoursesDetail.clear();
+    showProgress(context);
+    await _repository.getMyCoursesDetailBookAndPdf(id,pId,type).then((value) {
+      try {
+        if(value!="") {
+          isLoadingDetail.value=true;
+
+          Get.to(() => DetailCoursesBookAndPdfPage(getBookAndPdfDetailModel: value, image: image));
+
+          getBookAndPdfDetailModel=value;
           removeProgress();
 
         }

@@ -13,6 +13,7 @@ class DictionaryController extends GetxController{
   final box = GetStorage();
   var isLoading = true.obs;
   var texrget = "".obs;
+  var tabIndex = true.obs;
   var isLoadingTranslat = false.obs;
   late final DictionaryRepository _repository;
   DictionaryListModel? dictionaryListModel;
@@ -23,6 +24,9 @@ class DictionaryController extends GetxController{
     super.onInit();
     _repository = DictionaryRepository();
     dictionaryList();
+  }
+  changeTabIndex(bool val){
+    tabIndex.value=val;
   }
 
   @override

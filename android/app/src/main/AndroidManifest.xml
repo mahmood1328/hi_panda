@@ -1,6 +1,12 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="co.orod.education_hipanda">
+    <queries>
+        <package android:name="com.google.android.googlequicksearchbox"/>
+        <intent>
+            <action android:name="android.intent.action.TTS_SERVICE" />
+        </intent>
+    </queries>
     <application
         android:label="HiPanda"
         android:requestLegacyExternalStorage="true"
@@ -69,6 +75,7 @@
                 <data android:scheme="http"
                     android:host="ragamedia.co" />
             </intent-filter>
+
 
 
 
@@ -152,6 +159,7 @@
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
         </receiver>
+
     </application>
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>

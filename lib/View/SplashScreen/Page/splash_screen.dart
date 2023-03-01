@@ -34,6 +34,8 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
       });
     }catch(ignored){}
 
+    splashController.updateApp(context);
+
   }
 
 
@@ -96,6 +98,7 @@ class _SplashScreenPageState extends State<SplashScreenPage> {
     timer.cancel();
     _connectivity.disposeStream();
   }
+  var splashController=Get.put(SplashController());
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);

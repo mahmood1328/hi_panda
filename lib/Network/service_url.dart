@@ -20,6 +20,7 @@ class ServiceURL {
   static const String register = "/AuthorizeAPP/SaveUserInfo";
   static const String myCourse = "/MainAPP/GetMyCourse";
   static const String myCourseDetail = "/MainAPP/GetCourseDetail";
+  static const String getBookAndPDFDetail = "/MainAPP/GetBookAndPDFDetail";
   static const String savePushTokenMobileInfoUrl = "/AuthorizeApp/savePushTokenAndMobileInfo";
   static const String saveUserInfoUrl = "/AuthorizeApp/SaveUserInfo";
   static const String deletePushTokenUrl = "/AuthorizeApp/deletePushToken";
@@ -63,6 +64,16 @@ class ServiceURL {
   static const String getMyNotifiUrl = "/MainAPP/GetMyNotifi";
   static const String getAppInfoUrl = "/MainAPP/GetAppInfo";
   static const String addViewNotifiUrl = "/MainAPP/AddViewNotifi";
+  static const String getFlashCardListUrl = "/FlashCard/GetFlashCardList";
+  static const String addGeneralToMyFlashCardUrl = "/FlashCard/AddGeneralToMyFlashCard";
+  static const String addItemToFlashCardCategory = "/FlashCard/AddItemToFlashCardCategory";
+  static const String addItemToFlashCardCategoryUrl = "/FlashCard/AddItemToFlashCardCategory";
+  static const String getFlashCardCategoryUrl = "/FlashCard/GetFlashCardCategory";
+  static const String addItemToFlashCardUrl = "/FlashCard/AddItemToFlashCard";
+  static const String getBoxUrl = "/FlashCard/GetBox";
+  static const String getKeywordUrl = "/FlashCard/GetKeyword";
+  static const String keywordSendToOtherBoxUrl = "/FlashCard/KeywordSendToOtherBox";
+  static const String sendToMyFriendUrl = "/FlashCard/SendToMyFriend";
 
 
 }

@@ -11,6 +11,8 @@ import '../../Chat/Controller/chat_controller.dart';
 import '../../Chat/Page/chat_page.dart';
 import '../../Chat/Page/list_chat_page.dart';
 import '../../Consult/Page/consultPage.dart';
+import '../../Dictionary Page/View/dictionary_page.dart';
+import '../../Flash Card/View/flash_card_page.dart';
 import '../../Planer/View/planer_page.dart';
 import '../../Profile/Page/profile_page.dart';
 import '../../SplashScreen/Controller/splash_controller.dart';
@@ -23,12 +25,48 @@ class MainPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    var splashController=Get.put(SplashController());
     SizeConfig().init(context);
     var chatController = Get.put(ChatController());
     final controller = Get.put(MainPageController());
-    splashController.updateApp(context);
+
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: ColorsApp.primary,
+        elevation: 5,
+       toolbarHeight: 55,
+       title: Row(
+         mainAxisAlignment: MainAxisAlignment.end,
+         children: [
+           GestureDetector(
+
+             child: Padding(
+               padding: const EdgeInsets.all(0),
+               child: CircleAvatar(
+                   radius: 20,
+                   backgroundColor: Colors.white,
+                   child: SvgPicture.asset("${ConstAddress.icon}cards.svg",height: 25,width: 25,color: ColorsApp.primary,)),
+             ),
+             onTap: (){
+               Get.to(()=> const FlashCardPage());
+             },
+           ),
+         ],
+       ),
+        leading:  GestureDetector(
+
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: CircleAvatar(
+              radius: 10,
+              backgroundColor: Colors.white,
+              child: SvgPicture.asset("${ConstAddress.icon}dic.svg",height: 22,width: 22,color: ColorsApp.primary,),
+            ),
+          ),
+          onTap: (){
+            Get.to(()=> const DictionaryPage(tabSelect: DictionaryType.online,));
+          },
+        ),
+      ),
         resizeToAvoidBottomInset: false,
         backgroundColor: ColorsApp.white,
         bottomNavigationBar: Obx(() =>  Container(
@@ -187,28 +225,30 @@ class MainPage extends StatelessWidget {
             ],
           ),
         ),),
-        body: WillPopScope(
-            onWillPop: () =>controller.handleWillPop(context),
-            child:  SizedBox(
-              height: SizeConfig.screenHeight,
-              width: SizeConfig.screenWidth,
-              child: PageView(
-                physics: const CustomPhysics(),
-                onPageChanged: (index) {
-                  controller.onItemTapped(index);
-                },
-                controller: controller.pageController,
-                children:  [
-                   ProfilePage(),
-                  controller.box.read("role")==4&&controller.box.read("isSupport")? ListChatPage():
-                  controller.box.read("role")==4&&controller.box.read("isConsult")? ConsultPage():
-                  controller.box.read("role")!=3?const ComingSoonPage( name: 'دسترسی برای شما وجود ندارد ',)
-                      : ChatPage(),
-                  PlanerPage(),
-                     const HomeTestPage(),
-                  BlogScreen(),
-                ],
-              ),
-            ),));
+        body: SafeArea(
+          child: WillPopScope(
+              onWillPop: () =>controller.handleWillPop(context),
+              child:  SizedBox(
+                height: SizeConfig.screenHeight,
+                width: SizeConfig.screenWidth,
+                child: PageView(
+                  physics: const CustomPhysics(),
+                  onPageChanged: (index) {
+                    controller.onItemTapped(index);
+                  },
+                  controller: controller.pageController,
+                  children:  [
+                     ProfilePage(),
+                    controller.box.read("role")==4&&controller.box.read("isSupport")? ListChatPage():
+                    controller.box.read("role")==4&&controller.box.read("isConsult")? ConsultPage():
+                    controller.box.read("role")!=3?const ComingSoonPage( name: 'دسترسی برای شما وجود ندارد ',)
+                        : ChatPage(),
+                    PlanerPage(),
+                       const HomeTestPage(),
+                    BlogScreen(),
+                  ],
+                ),
+              ),),
+        ));
   }
 }

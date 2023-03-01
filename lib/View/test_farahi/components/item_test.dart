@@ -20,6 +20,8 @@ final  Course course;
 
         if(course.type==2){
           coursesController.getMyCoursesDetailM(course.id,course.pId,course.type,course.photo,context,course.isBuy);
+        }else if(course.type==6||course.type==7){
+          coursesController.getMyCoursesDetailBookAndPdf(course.id,course.pId,course.type,course.photo,context,course.isBuy);
         }else{
           coursesController.getMyCoursesDetailV(course.id,course.pId,course.type,context,course.isBuy);
         }
@@ -90,11 +92,19 @@ final  Course course;
                                  "${ConstAddress.icon}voice2.svg",color: ColorsApp.primaryLight2,
                                ),
                              )
-                           :SizedBox(
+                           :course.type==4?SizedBox(
                                child: SvgPicture.asset(
                                  "${ConstAddress.icon}animation.svg",color: ColorsApp.primaryLight2,
                                ),
-                             ),)
+                             ):course.type==6?SizedBox(
+                               child: SvgPicture.asset(
+                                 "${ConstAddress.icon}book.svg",color: ColorsApp.primaryLight2,
+                               ),
+                             ):course.type==7?SizedBox(
+                               child: SvgPicture.asset(
+                                 "${ConstAddress.icon}pdf.svg",color: ColorsApp.primaryLight2,
+                               ),
+                             ):SizedBox(),)
 
                          ],
                        ),

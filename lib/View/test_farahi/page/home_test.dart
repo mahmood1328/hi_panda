@@ -79,7 +79,6 @@ class _HomeTestPageState extends State<HomeTestPage> {
  }
   @override
   Widget build(BuildContext context) {
-
     // coursesController. getMyCourses();
     return GetX<CoursesController>(
         init: coursesController,
@@ -93,47 +92,27 @@ class _HomeTestPageState extends State<HomeTestPage> {
               child: SingleChildScrollView(
                 child: Column(
                   children: [
-                    Container(
-                      height:40,
-                      width:SizeConfig.screenWidth,
-                      decoration: const BoxDecoration(
-                          color: ColorsApp.primary,
-                          borderRadius:BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
-                         //border: Border.all(width: 1,color: ColorsApp.primaryLight.withOpacity(0.3))
-
-                      ),
-                    ),
+                    // Container(
+                    //   height:40,
+                    //   width:SizeConfig.screenWidth,
+                    //   decoration: const BoxDecoration(
+                    //       color: ColorsApp.primary,
+                    //       borderRadius:BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
+                    //      //border: Border.all(width: 1,color: ColorsApp.primaryLight.withOpacity(0.3))
+                    //
+                    //   ),
+                    // ),
                      const SizedBox(height: 10,),
                     Padding(
                       padding: const EdgeInsets.only(left: 30,right: 30),
                       child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisAlignment: MainAxisAlignment.end,
                         children: [
-                          GestureDetector(
 
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                  color: ColorsApp.white,
-                                  borderRadius:const BorderRadius.all(Radius.circular(25)),
-                                  border: Border.all(width: 1,color: ColorsApp.white.withOpacity(0.3))
-
-                              ),
-                              child:Padding(
-                                padding: const EdgeInsets.all(9),
-                                child: Image.asset("${ConstAddress.image}dictionary3.png",height: 20,width: 20,color: ColorsApp.primary,),
-                              ),
-                            ),
-                            onTap: (){
-                              Get.to(()=> const DictionaryPage(tabSelect: DictionaryType.online,));
-                            },
-                          ),
-                          Column(
+                          Row(
                             crossAxisAlignment: CrossAxisAlignment.end,
                             children: [
-                              Text("،سلام",
-                                style: TextStyle(color: ColorsApp.black.withOpacity(0.8),fontSize: 18,fontFamily: "IranSANS",fontWeight: FontWeight.bold),),
+
                               Row(
                                 children: [
                                   Image.asset("${ConstAddress.image}hi.png",height: 30,width: 30,),
@@ -142,6 +121,9 @@ class _HomeTestPageState extends State<HomeTestPage> {
                                     style:const TextStyle(color: ColorsApp.primary,fontSize: 19,fontFamily: "IranSANS",fontWeight: FontWeight.bold),),
                                 ],
                               ),
+                             const SizedBox(width: 5,),
+                              Text("،سلام",
+                                style: TextStyle(color: ColorsApp.black.withOpacity(0.8),fontSize: 18,fontFamily: "IranSANS",fontWeight: FontWeight.bold),),
                             ],
                           )
                         ],
@@ -189,25 +171,28 @@ class _HomeTestPageState extends State<HomeTestPage> {
                       child: SizedBox(
                         height:50,
                         width:SizeConfig.screenWidth,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: coursesController.category.map((element) =>
-                              GestureDetector(
-                                onTap: (){
-                                  coursesController.getId(element.id);
-                                  coursesController.changeCategory();
-                                },
-                                child: Container(
-                                  padding: const EdgeInsets.only(top: 5,bottom: 5,left: 15,right: 15),
-                                  margin:const EdgeInsets.only(left: 5,right: 5),
-                                  decoration: BoxDecoration(
-                                      color:coursesController.idCat.value==element.id? ColorsApp.primary: ColorsApp.white,
-                                      borderRadius: const BorderRadius.all(Radius.circular(30))),
-                                  child: Text(element.title,style: TextStyle(fontSize: 14,color:coursesController.idCat.value==element.id?
-                                  ColorsApp.white:
-                                  ColorsApp.black,fontFamily: "IranSANS"),),
-                                ),
-                              )).toList(),
+                        child: SingleChildScrollView(
+                          scrollDirection: Axis.horizontal,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.center,
+                            children: coursesController.category.map((element) =>
+                                GestureDetector(
+                                  onTap: (){
+                                    coursesController.getId(element.id);
+                                    coursesController.changeCategory();
+                                  },
+                                  child: Container(
+                                    padding: const EdgeInsets.only(top: 5,bottom: 5,left: 15,right: 15),
+                                    margin:const EdgeInsets.only(left: 5,right: 5),
+                                    decoration: BoxDecoration(
+                                        color:coursesController.idCat.value==element.id? ColorsApp.primary: ColorsApp.white,
+                                        borderRadius: const BorderRadius.all(Radius.circular(30))),
+                                    child: Text(element.title,style: TextStyle(fontSize: 14,color:coursesController.idCat.value==element.id?
+                                    ColorsApp.white:
+                                    ColorsApp.black,fontFamily: "IranSANS"),),
+                                  ),
+                                )).toList(),
+                          ),
                         ),
                       ),
                     ):

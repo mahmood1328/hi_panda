@@ -28,63 +28,55 @@ class ProfilePage extends StatelessWidget {
         child: SingleChildScrollView(
           child: Column(
             children: [
-              Container(
-                padding: const EdgeInsets.symmetric(horizontal: 30),
-                height: SizeConfig.screenHeight/6,
-                width: SizeConfig.screenWidth,
-                decoration: const BoxDecoration(
-                    color: ColorsApp.primary,
-                    borderRadius: BorderRadius.only(bottomLeft: Radius.circular(30),bottomRight: Radius.circular(30))
-                ),
-                child: Padding(
-                  padding:  EdgeInsets.only(top: SizeConfig.screenHeight/5/2.2),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
+              Padding(
+                padding:  EdgeInsets.only(top: 10,left: 20,right: 20),
 
-                      Row(
-                        children: [
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+
+                    Row(
+                      children: [
 
 
-                          GestureDetector(
-                            onTap: (){
-                              showCupertinoModalBottomSheet(
-                                  expand: false,
-                                  context: context,
-                                  useRootNavigator: true,
-                                  backgroundColor: ColorsApp.white,
-                                  builder: (BuildContext context) =>
+                        GestureDetector(
+                          onTap: (){
+                            showCupertinoModalBottomSheet(
+                                expand: false,
+                                context: context,
+                                useRootNavigator: true,
+                                backgroundColor: ColorsApp.white,
+                                builder: (BuildContext context) =>
 
-                                  const ModalLogout());
-                            } ,
-                            child: SizedBox(
-                              height: 30,
-                              width: 30,
-                              child: SvgPicture.asset(
-                                "${ConstAddress.icon}close.svg",color: ColorsApp.white,
-                              ),
+                                const ModalLogout());
+                          } ,
+                          child: SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: SvgPicture.asset(
+                              "${ConstAddress.icon}close.svg",color: ColorsApp.colorTextNormal,
                             ),
                           ),
-                          const SizedBox(width: 20,),
-                          GestureDetector(
-                            onTap: (){
-                              notificationController.notificationList(context,1,10,"",0);
-                            },
-                            child: SizedBox(
-                              height: 30,
-                              width: 30,
-                              child: SvgPicture.asset(
-                                "${ConstAddress.icon}bell2.svg",color: ColorsApp.white,
-                              ),
+                        ),
+                        const SizedBox(width: 20,),
+                        GestureDetector(
+                          onTap: (){
+                            notificationController.notificationList(context,1,10,"",0);
+                          },
+                          child: SizedBox(
+                            height: 30,
+                            width: 30,
+                            child: SvgPicture.asset(
+                              "${ConstAddress.icon}bell2.svg",color: ColorsApp.colorTextNormal,
                             ),
                           ),
-                        ],
-                      ),
+                        ),
+                      ],
+                    ),
 
-                      const Text("پروفایل" , style: TextStyle(fontSize: 22 , fontWeight: FontWeight.bold , color: ColorsApp.white,fontFamily: "IranSANS"),),
+                    const Text("پروفایل" , style: TextStyle(fontSize: 22 , fontWeight: FontWeight.bold , color: ColorsApp.colorTextNormal,fontFamily: "IranSANS"),),
 
-                    ],
-                  ),
+                  ],
                 ),
               ),
              const SizedBox(height: 30,),

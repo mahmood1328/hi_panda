@@ -22,7 +22,7 @@ class ColorsApp {
 
 
   static const Color red = Color(0xFFF44333);
-  static const Color yellow = Color(0xFFF3BF35);
+  static const Color yellow = Color(0xFFFFD700);
   static const Color green = Color(0xFF189D0E);
   static const Color backHome = Color(0xFFe1f9e1);
   static const Color backLayer = Color(0xFFF9F9F9);
@@ -46,6 +46,8 @@ class ColorsApp {
   static const Color colorSymbolIcon = Color(0xFFC5D7AE);
   static const Color colorBorder = Color(0xFFC5D7AE);
   static const Color secondaryTextColor = Color(0xFFBFBEBE);
+  static const Color onColor = Color(0xFFe1e1e1);
+  static const Color offColor = Color(0xFFc3c3c3);
 
   static const Color black = Colors.black;
   static const Color gray = Colors.grey;

@@ -29,18 +29,18 @@ class ListChatPage extends StatelessWidget {
                         child: SingleChildScrollView(
                           child: Column(
                             children: [
-                              Container(
-                                height:40,
-                                width:SizeConfig.screenWidth,
-                                decoration: const BoxDecoration(
-                                  color: ColorsApp.primary,
-                                  borderRadius:BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
-                                  //border: Border.all(width: 1,color: ColorsApp.primaryLight.withOpacity(0.3))
-
-                                ),
-                              ),
+                              // Container(
+                              //   height:40,
+                              //   width:SizeConfig.screenWidth,
+                              //   decoration: const BoxDecoration(
+                              //     color: ColorsApp.primary,
+                              //     borderRadius:BorderRadius.only(bottomLeft: Radius.circular(20),bottomRight: Radius.circular(20)),
+                              //     //border: Border.all(width: 1,color: ColorsApp.primaryLight.withOpacity(0.3))
+                              //
+                              //   ),
+                              // ),
                               const SizedBox(
-                                height: 20,
+                                height: 10,
                               ),
                               Padding(
                                 padding: const EdgeInsets.symmetric(
