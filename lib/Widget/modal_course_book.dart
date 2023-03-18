@@ -14,12 +14,13 @@ import '../../../main.dart';
 import '../../../utils/const.dart';
 import '../../../utils/res/colors.dart';
 import '../../../utils/size_config.dart';
-import '../../audio_player/Page/player_page.dart';
-import '../../test_farahi/controller/courses.dart';
-import '../Model/get_pdf_book_details_model.dart';
+import '../View/Planer/Models/planner_session_item_details_model.dart';
+import '../View/audio_player/Page/player_page.dart';
+import '../View/test_farahi/Model/get_pdf_book_details_model.dart';
+import '../View/test_farahi/controller/courses.dart';
 
 class DetailCoursesBookAndPdfPage extends StatefulWidget {
-  final GetBookAndPdfDetailModel getBookAndPdfDetailModel;
+  final  PlannerSessionItemDetailModel getBookAndPdfDetailModel;
   final String image;
   const DetailCoursesBookAndPdfPage({Key? key,required this.getBookAndPdfDetailModel,required this.image}) : super(key: key);
 
@@ -47,7 +48,7 @@ class _DetailCoursesBookAndPdfPageState extends State<DetailCoursesBookAndPdfPag
                 ServiceURL.baseUrl +  widget.image),
 
             extras: {"url":"${ServiceURL.baseUrl2+widget.getBookAndPdfDetailModel.url}",
-              "token":"Bearer ${coursesController.token.value}","lyric":widget.getBookAndPdfDetailModel.abstract}
+              "token":"Bearer ${coursesController.token.value}","lyric":widget.getBookAndPdfDetailModel.descript}
         ),
 
       ]);
@@ -82,35 +83,35 @@ class _DetailCoursesBookAndPdfPageState extends State<DetailCoursesBookAndPdfPag
             child: SingleChildScrollView(
               child: Column(
                 children: [
-                  const SizedBox(height: 20,),
-                  Row                                                                                                                                                                                                                          (
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-
-                      GestureDetector(
-                        onTap: (){
-                          Get.back();
-                        },
-                        child: Container(
-                          margin: const EdgeInsets.only(left: 20,bottom: 20,top: 10),
-                          height: 25,
-                          width: 25,
-                          child: SvgPicture.asset(
-                            "${ConstAddress.icon}arrowLeft.svg",color: ColorsApp.black,
-                          ),
-                        ),
-                      ),
-                      Directionality(
-                        textDirection: TextDirection.rtl,
-                        child: Padding(
-                          padding: const EdgeInsets.only(right: 20,bottom: 20,top: 10),
-                          child: Text(widget.getBookAndPdfDetailModel.title,
-                            style:const TextStyle(color: ColorsApp.black,fontSize: 18,fontFamily: "robot",fontWeight: FontWeight.bold),),
-                        ),
-                      ),
-
-                    ],
-                  ),
+                  const SizedBox(height: 0,),
+                  // Row                                                                                                                                                                                                                          (
+                  //   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  //   children: [
+                  //
+                  //     GestureDetector(
+                  //       onTap: (){
+                  //         Get.back();
+                  //       },
+                  //       child: Container(
+                  //         margin: const EdgeInsets.only(left: 20,bottom: 20,top: 10),
+                  //         height: 25,
+                  //         width: 25,
+                  //         child: SvgPicture.asset(
+                  //           "${ConstAddress.icon}arrowLeft.svg",color: ColorsApp.black,
+                  //         ),
+                  //       ),
+                  //     ),
+                  //     Directionality(
+                  //       textDirection: TextDirection.rtl,
+                  //       child: Padding(
+                  //         padding: const EdgeInsets.only(right: 20,bottom: 20,top: 10),
+                  //         child: Text(widget.getBookAndPdfDetailModel.title,
+                  //           style:const TextStyle(color: ColorsApp.black,fontSize: 18,fontFamily: "robot",fontWeight: FontWeight.bold),),
+                  //       ),
+                  //     ),
+                  //
+                  //   ],
+                  // ),
                   // Container(
                   //   margin: const EdgeInsets.only(top: 0,bottom: 20),
                   //   height: 50,
@@ -127,7 +128,7 @@ class _DetailCoursesBookAndPdfPageState extends State<DetailCoursesBookAndPdfPag
                         tagsList: Html.tags..addAll(["bird", "flutter"]),
                         style: {
                           "body": Style(
-                              textAlign: TextAlign.justify,fontFamily: "robot",color: Colors.black,
+                            textAlign: TextAlign.justify,fontFamily: "robot",color: Colors.black,
                           ),
                           "tr": Style(textAlign: TextAlign.justify,
                             border:const Border(bottom: BorderSide(color: Colors.black,)),
@@ -158,7 +159,7 @@ class _DetailCoursesBookAndPdfPageState extends State<DetailCoursesBookAndPdfPag
                       javascriptMode: JavascriptMode.unrestricted,
                     ),
                   ),
-                  const SizedBox(height: 40,),
+
                 ],
               ),
             ),

@@ -15,6 +15,7 @@ final  Course course;
   @override
   Widget build(BuildContext context) {
     var coursesController=Get.put(CoursesController());
+    print(ServiceURL.baseUrl +  course.photo);
     return GestureDetector(
       onTap: (){
 

@@ -19,7 +19,6 @@ class LoadingHome extends StatelessWidget {
           margin: const EdgeInsets.only(top: 10),
           child: ListView(
             children: [
-             const SizedBox(height: 50,),
               SkeletonAnimation(
                 shimmerColor: Colors.grey,
                 shimmerDuration: 500,

@@ -24,7 +24,7 @@ class BannerComponent extends StatelessWidget {
         children: [
           Container(
             width: screenSize.width ,
-            height: (screenSize.width) / 1.8,
+            height: (screenSize.width) /2,
             decoration: BoxDecoration(
 
               borderRadius: BorderRadius.circular(0),

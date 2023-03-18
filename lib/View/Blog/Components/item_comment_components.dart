@@ -1,6 +1,8 @@
 
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import '../../../utils/const.dart';
 import '../../../utils/res/colors.dart';
 import '../../../utils/size_config.dart';
 import '../Controller/blog_controller.dart';
@@ -39,6 +41,7 @@ class _ItemCommentComponentsState extends State<ItemCommentComponents> {
                   setState(() {
                     likeCommentValue=false;
                   });
+
                 }else{
                   setState(() {
                     likeCommentValue=true;
@@ -58,9 +61,10 @@ class _ItemCommentComponentsState extends State<ItemCommentComponents> {
                   const SizedBox(width: 3,),
                   Text(widget.comment.writerName , style:const TextStyle(fontSize: 11 , fontWeight: FontWeight.bold , color: ColorsApp.colorTextTitle,fontFamily: "IranSANS"),),
                   const SizedBox(width: 8,),
-                  const CircleAvatar(
-                    radius: 15,
-                    backgroundImage: NetworkImage("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQiVWupoD5ivNVv-2C_YX_ddk6ZgM0HB_xYVA&usqp=CAU"),
+                   CircleAvatar(
+                    radius: 17,
+                    backgroundColor: ColorsApp.primary,
+                    child: SvgPicture.asset("${ConstAddress.icon}pro3.svg"),
                   ),
                 ],
               ),
@@ -72,7 +76,7 @@ class _ItemCommentComponentsState extends State<ItemCommentComponents> {
             child: Wrap(
               alignment: WrapAlignment.end,
               children:  [
-                Text(widget.comment.text , style:const TextStyle(fontSize: 9 , fontWeight: FontWeight.bold , color: ColorsApp.primaryLight2,fontFamily: "IranSANS",
+                Text(widget.comment.text , style:const TextStyle(fontSize: 9 , fontWeight: FontWeight.bold , color: ColorsApp.textUnSelected,fontFamily: "IranSANS",
 
                 ),textDirection: TextDirection.rtl,),
               ],

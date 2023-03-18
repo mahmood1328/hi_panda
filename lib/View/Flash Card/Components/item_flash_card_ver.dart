@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:get/get.dart';
 import '../../../Network/service_url.dart';
 import '../../../utils/const.dart';
 import '../../../utils/res/colors.dart';
 import '../../../utils/size_config.dart';
+import '../Controller/flash_card_controller.dart';
 import '../Models/get_flash_card_list_model.dart';
 
 class ItemFlashCardVer extends StatelessWidget {
@@ -12,6 +14,7 @@ class ItemFlashCardVer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    var flashCardController =Get.put(FlashCardController());
     return  Column(
       children: [
         Container(
@@ -61,29 +64,34 @@ class ItemFlashCardVer extends StatelessWidget {
             ),
           ),
         ),
-        Container(
-          height:30,
-          width:SizeConfig.screenWidth/4.5,
-           margin:const EdgeInsets.only(right: 3,left: 3,top: 0),
-          child: Card(
-            color:   ColorsApp.white,
-            elevation: 3,
-            surfaceTintColor: Colors.grey,
-            shadowColor:Colors.grey ,
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(10),
-             // side: BorderSide(color: ColorsApp.primary)
-            ),
-            semanticContainer: true,
-            clipBehavior: Clip.hardEdge,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
+        GestureDetector(
+          onTap: (){
+            flashCardController.addGeneralToMyFlashCard(flashCard.id, context);
+          },
+          child: Container(
+            height:30,
+            width:SizeConfig.screenWidth/4.5,
+             margin:const EdgeInsets.only(right: 3,left: 3,top: 0),
+            child: Card(
+              color:   ColorsApp.white,
+              elevation: 3,
+              surfaceTintColor: Colors.grey,
+              shadowColor:Colors.grey ,
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(10),
+               // side: BorderSide(color: ColorsApp.primary)
+              ),
+              semanticContainer: true,
+              clipBehavior: Clip.hardEdge,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
 
-                SvgPicture.asset(ConstAddress.icon+"add3.svg",height: 20,color: flashCard.level==1?ColorsApp.yellow:flashCard.level==2?ColorsApp.primary:ColorsApp.red)
+                  SvgPicture.asset(ConstAddress.icon+"add3.svg",height: 20,color: flashCard.level==1?ColorsApp.yellow:flashCard.level==2?ColorsApp.primary:ColorsApp.red)
 
 
-              ],
+                ],
+              ),
             ),
           ),
         ),

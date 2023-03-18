@@ -2,7 +2,10 @@ import 'package:assets_audio_player/assets_audio_player.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_html/flutter_html.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:get/get.dart';
+import 'package:hi_panda/View/Flash%20Card/Controller/flash_card_controller.dart';
+import 'package:skeleton_text/skeleton_text.dart';
 import 'package:text_to_speech/text_to_speech.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import '../../../Network/service_url.dart';
@@ -24,10 +27,12 @@ class OnlineComponent extends StatefulWidget {
 
 class _OnlineComponentState extends State<OnlineComponent> {
   bool play = false;
+  bool isLoading = false;
   TextToSpeech tts = TextToSpeech();
+  var dictionaryController =Get.put(DictionaryController());
+  var flashCardController =Get.put(FlashCardController());
   @override
   Widget build(BuildContext context) {
-    var dictionaryController =Get.put(DictionaryController());
     String text = "Hello, Good Morning!";
     return Obx(() => Container(
         height: SizeConfig.screenHeight,
@@ -161,7 +166,7 @@ class _OnlineComponentState extends State<OnlineComponent> {
                             }
 
                           },
-                          child: Icon(Icons.search,color: ColorsApp.white,),),
+                          child: const Icon(Icons.search,color: ColorsApp.white,),),
                       ),
                     ),
                     Expanded(
@@ -219,49 +224,29 @@ class _OnlineComponentState extends State<OnlineComponent> {
               ),
 
               dictionaryController.isLoadingTranslat.value?  Padding(
-                padding: const EdgeInsets.only(right: 40,left: 30,top: 10),
+                padding: const EdgeInsets.only(right: 40,left: 30,top: 15),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
 
-                    Padding(
-                      padding:  const EdgeInsets.only(top: 0,left: 0,right: 20),
-                      child: Center(
-                        child: ElevatedButton(
-
-                          style: ButtonStyle(
-                              minimumSize: MaterialStateProperty.all( Size(50, 45)),
-                              foregroundColor: MaterialStateProperty.all<Color>(ColorsApp.primary),
-                              backgroundColor: MaterialStateProperty.all<Color>(ColorsApp.primary),
-                              shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-                                  RoundedRectangleBorder(
-                                      borderRadius: BorderRadius.circular(10),
-                                      side: const BorderSide(color:ColorsApp.white)
-                                  )
-                              )
-                          ),
-
-                          onPressed: () {
-
-                           setState(() {
-                             tts.speak(text);
-                           });
-                            ShowSnackBar().showSnackBar(
-                              context,
-                              "به فلش کارت اضافه شد",duration: const Duration(seconds: 5),
-                            );
-
-                          },
-                          child:  Text(
-                            "اضافه کردن به فلش کارت",
-                            style: TextStyle(
-                              fontSize: 12,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: "IranSANS",
-                              color: ColorsApp.white ),
-                          ),),
+                    GestureDetector(
+                      child: SizedBox(
+                        height: 30,
+                        width: 30,
+                        child: SvgPicture.asset(
+                          "${ConstAddress.icon}vol.svg",color: ColorsApp.iconTextField,
+                        ),
                       ),
+                      onTap: (){
+                        if(dictionaryController.controllerTranslate.text!=""){
+                          setState(() {
+                            tts.speak(dictionaryController.controllerTranslate.text);
+                          });
+                        }
+                      },
                     ),
+
+
                     Text(
                       dictionaryController.controllerTranslate.text,
                       style: TextStyle(
@@ -274,7 +259,37 @@ class _OnlineComponentState extends State<OnlineComponent> {
 
                 ),
               ):const SizedBox(),
+              const SizedBox(height: 10,),
+              dictionaryController.isLoadingTranslat.value?  Padding(
+                padding:  const EdgeInsets.only(top: 0,left: 30,right: 30),
+                child: Center(
+                  child: ElevatedButton(
 
+                    style: ButtonStyle(
+                        minimumSize: MaterialStateProperty.all( Size(SizeConfig.screenWidth, 45)),
+                        foregroundColor: MaterialStateProperty.all<Color>(ColorsApp.primary),
+                        backgroundColor: MaterialStateProperty.all<Color>(ColorsApp.primary),
+                        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+                            RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(10),
+                                side: const BorderSide(color:ColorsApp.white)
+                            )
+                        )
+                    ),
+
+                    onPressed: () {
+                      flashCardController.getFlashCardCategory(context,dictionaryController.controllerTranslate.text);
+                    },
+                    child:  const Text(
+                      "اضافه کردن به فلش کارت",
+                      style: TextStyle(
+                          fontSize: 12,
+                          fontWeight: FontWeight.bold,
+                          fontFamily: "IranSANS",
+                          color: ColorsApp.white ),
+                    ),),
+                ),
+              ):const SizedBox(),
              const SizedBox(height: 10,),
               dictionaryController.isLoadingTranslat.value?   Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -334,12 +349,24 @@ class _OnlineComponentState extends State<OnlineComponent> {
               dictionaryController.isLoadingTranslat.value? Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0),
                 child: Container(
-                  height: SizeConfig.screenHeight/1.7,
+                  height: SizeConfig.screenHeight/2.2,
                   width: SizeConfig.screenWidth/1.1,
-                  child:  WebView(
-                    initialUrl: '${ServiceURL.baseUrl}${dictionaryController.dictionaryModel!.htmlResult}',
-                    javascriptMode: JavascriptMode.unrestricted,
+                  child:  Stack(
+                    children: [
 
+                      WebView(
+                        onPageFinished: (String url) {
+                          print('Page finished loading: $url');
+                          setState(() {
+                            isLoading = true;
+                          });
+                        },
+                        initialUrl: '${ServiceURL.baseUrl}${dictionaryController.dictionaryModel!.htmlResult}',
+                        javascriptMode: JavascriptMode.unrestricted,
+                      ),
+                      isLoading?SizedBox() : Center(child: CircularProgressIndicator(),),
+
+                    ],
                   ),
                 ),
               ):const SizedBox()

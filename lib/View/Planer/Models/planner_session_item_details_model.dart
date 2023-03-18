@@ -1,4 +1,8 @@
+// To parse this JSON data, do
+//
+//     final plannerSessionItemDetailModel = plannerSessionItemDetailModelFromJson(jsonString);
 
+import 'package:meta/meta.dart';
 import 'dart:convert';
 
 PlannerSessionItemDetailModel plannerSessionItemDetailModelFromJson(String str) => PlannerSessionItemDetailModel.fromJson(json.decode(str));
@@ -9,43 +13,47 @@ class PlannerSessionItemDetailModel {
   PlannerSessionItemDetailModel({
     required this.canView,
     required this.url,
-    required this.title,
+    required this.pdfUrl,
     required this.descript,
     required this.photoShow,
     required this.restMinutes,
     required this.questionGroups,
     required this.duration,
+    required this.title,
   });
 
   final bool canView;
   final String url;
-  final String title;
+  final String pdfUrl;
   final String descript;
   final String photoShow;
   final int restMinutes;
-  final int duration;
   final List<QuestionGroup>? questionGroups;
+  final int duration;
+  final String title;
 
   factory PlannerSessionItemDetailModel.fromJson(Map<String, dynamic> json) => PlannerSessionItemDetailModel(
     canView: json["canView"],
     url: json["url"],
-    title: json["title"],
+    pdfUrl: json["pdfUrl"],
     descript: json["descript"],
     photoShow: json["photoShow"],
     restMinutes: json["restMinutes"],
-    duration: json["duration"],
     questionGroups:json["questionGroups"]!=null? List<QuestionGroup>.from(json["questionGroups"].map((x) => QuestionGroup.fromJson(x))):null,
+    duration: json["duration"],
+    title: json["title"],
   );
 
   Map<String, dynamic> toJson() => {
     "canView": canView,
     "url": url,
-    "title": title,
+    "pdfUrl": pdfUrl,
     "descript": descript,
     "photoShow": photoShow,
     "restMinutes": restMinutes,
-    "duration": duration,
     "questionGroups": List<dynamic>.from(questionGroups!.map((x) => x.toJson())),
+    "duration": duration,
+    "title": title,
   };
 }
 

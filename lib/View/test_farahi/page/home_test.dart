@@ -206,7 +206,6 @@ class _HomeTestPageState extends State<HomeTestPage> {
                         onRefresh: () =>coursesController.fetchFruit(context),
                         child: ListView(
                           children: [
-
                             Column(
                               children:coursesController.listMyCoursesCat.isNotEmpty? coursesController.listMyCoursesCat.map((element) => ItemTest(course: element,)).toList()
                                   :coursesController.listMyCourses.map((element) => ItemTest(course: element,)).toList()

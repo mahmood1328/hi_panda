@@ -18,64 +18,95 @@ class ItemBoxFlashCardComponents extends StatelessWidget {
       children: [
         Container(
           margin: const EdgeInsets.symmetric(horizontal: 20),
-          height:SizeConfig.screenHeight/6,
-          width:SizeConfig.screenWidth/2,
+          height:SizeConfig.screenHeight/11,
+          width:SizeConfig.screenWidth,
           child: Card(
             color:   Color(int.parse(color)),
             elevation: 0,
             surfaceTintColor: Colors.grey,
             shadowColor:Colors.grey ,
             shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(15),
+                borderRadius: BorderRadius.circular(10),
                // side: const BorderSide(color: ColorsApp.primary)
             ),
             semanticContainer: true,
             clipBehavior: Clip.hardEdge,
             child: Padding(
               padding: const EdgeInsets.symmetric(horizontal: 10),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
-                  Container(
-                    padding:const EdgeInsets.all(0),
-                    margin:const EdgeInsets.only(left: 3),
-                    height: 75,
-                    width: 75,
-                    child: SvgPicture.asset(
-                      "${ConstAddress.icon}box4.svg",color: Colors.white,
-                    ),
-                  ),
-                  Text(
-                    box.title,
-                    style:const TextStyle(
-                        fontSize: 15,
-                        fontWeight: FontWeight.bold,fontFamily: "IranSANS",
-                        color: ColorsApp.white),
-                    textAlign: TextAlign.center,
-                  ),
-                  const  SizedBox(width: 20,),
                   Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children:  [
-                      Text(
-                        box.keywrods.toString(),
-                        style:const TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.normal,fontFamily: "IranSANS",
-                            color: ColorsApp.white),
-                        textAlign: TextAlign.center,textDirection: TextDirection.ltr,
+                    children: [
+                      Container(
+                        padding:const EdgeInsets.all(0),
+                        margin:const EdgeInsets.only(right: 10),
+                        height: 45,
+                        width: 45,
+                        child: SvgPicture.asset(
+                          "${ConstAddress.icon}box4.svg",color: Colors.white,
+                        ),
                       ),
-                      const  SizedBox(width: 5,),
-                      const Text(
-                        "کلمه",
-                        style: TextStyle(
-                            fontSize: 13,
-                            fontWeight: FontWeight.normal,fontFamily: "IranSANS",
-                            color: ColorsApp.white),
-                        textAlign: TextAlign.center,textDirection: TextDirection.ltr,
+                      Container(
+                        height:SizeConfig.screenHeight/11,
+                        width: 1,
+                        color: ColorsApp.backTextField,
+                        margin: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
                       ),
                     ],
                   ),
+                  // const SizedBox(width: 20,),
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        box.title,
+                        style:const TextStyle(
+                            fontSize: 15,
+                            fontWeight: FontWeight.bold,fontFamily: "IranSANS",
+                            color: ColorsApp.white),
+                        textAlign: TextAlign.center,
+                      ),
+                      // const  SizedBox(width: 20,),
+                    ],
+                  ),
+                  Row(
+                    children: [
+                      Container(
+                        height:SizeConfig.screenHeight/11,
+                        width: 1,
+                        color: ColorsApp.backTextField,
+                        margin: EdgeInsets.symmetric(vertical: 15,horizontal: 20),
+                      ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 10),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children:  [
+                            Text(
+                              box.keywrods.toString(),
+                              style:const TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,fontFamily: "IranSANS",
+                                  color: ColorsApp.white),
+                              textAlign: TextAlign.center,textDirection: TextDirection.ltr,
+                            ),
+                            const  SizedBox(width: 5,),
+                            const Text(
+                              "کلمه",
+                              style: TextStyle(
+                                  fontSize: 13,
+                                  fontWeight: FontWeight.normal,fontFamily: "IranSANS",
+                                  color: ColorsApp.white),
+                              textAlign: TextAlign.center,textDirection: TextDirection.ltr,
+                            ),
+                          ],
+                        ),
+                      ),
+
+                    ],
+                  ),
+
                 ],
               ),
             ),

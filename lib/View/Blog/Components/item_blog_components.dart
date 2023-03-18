@@ -144,6 +144,7 @@ class _ItemBlogComponentsState extends State<ItemBlogComponents> {
                   const SizedBox(width: 8,),
                    CircleAvatar(
                     radius: 20,
+                    backgroundColor: Colors.white,
                     backgroundImage: NetworkImage(widget.post.writerLogo),
                   ),
                 ],
@@ -176,7 +177,7 @@ class _ItemBlogComponentsState extends State<ItemBlogComponents> {
           } ,
           child: Container(
             margin: const EdgeInsets.only(top: 8),
-            height: SizeConfig.screenHeight/3,
+            height: SizeConfig.screenHeight/3.7,
             width: SizeConfig.screenWidth,
             child: Stack(
               children: [
@@ -184,7 +185,7 @@ class _ItemBlogComponentsState extends State<ItemBlogComponents> {
                   child: BannerComponent(banners: widget.post.dataUrl,),
                 ):Container(
                  margin: const EdgeInsets.only(top: 0, bottom: 0),
-                 height: SizeConfig.screenHeight / 3,
+                 height: SizeConfig.screenHeight / 3.7,
                  child: Center(
                    child: _chewieController != null &&
                        _chewieController!.videoPlayerController
@@ -389,6 +390,7 @@ class _ItemBlogComponentsState extends State<ItemBlogComponents> {
             ],
           ),
         ),
+        const SizedBox(height: 5,),
         Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
@@ -405,7 +407,7 @@ class _ItemBlogComponentsState extends State<ItemBlogComponents> {
               },
               child: Container(alignment: Alignment.centerRight,
                 margin: const EdgeInsets.only(right: 0,top: 5,left: 20),
-                child: Text("دیدن همه ${widget.post.countComment} نظر" , style: const TextStyle(fontSize: 12 , fontWeight: FontWeight.bold , color: ColorsApp.textColorSub,fontFamily: "IranSANS",decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
+                child: Text("دیدن همه ${widget.post.countComment} نظر" , style: const TextStyle(fontSize: 11 , fontWeight: FontWeight.bold , color: ColorsApp.primary,fontFamily: "IranSANS"),textDirection: TextDirection.rtl,
                 ),
 
               ),
@@ -423,7 +425,7 @@ class _ItemBlogComponentsState extends State<ItemBlogComponents> {
               },
               child: Container(alignment: Alignment.centerRight,
                 margin: const EdgeInsets.only(right: 20,top: 5,left: 10),
-                child:const Text("دیدن متن کامل" , style: TextStyle(fontSize: 12 , fontWeight: FontWeight.bold , color: ColorsApp.textColorSub,fontFamily: "IranSANS",decoration: TextDecoration.underline),textDirection: TextDirection.rtl,
+                child:const Text("دیدن متن کامل" , style: TextStyle(fontSize: 11 , fontWeight: FontWeight.bold , color: ColorsApp.primary,fontFamily: "IranSANS"),textDirection: TextDirection.rtl,
                 ),
 
               ),

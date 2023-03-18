@@ -47,7 +47,9 @@ class MainPage extends StatelessWidget {
                    child: SvgPicture.asset("${ConstAddress.icon}cards.svg",height: 25,width: 25,color: ColorsApp.primary,)),
              ),
              onTap: (){
-               Get.to(()=> const FlashCardPage());
+               Navigator.push(context, MaterialPageRoute(builder: (context) =>  FlashCardPage(),));
+
+
              },
            ),
          ],
@@ -55,7 +57,7 @@ class MainPage extends StatelessWidget {
         leading:  GestureDetector(
 
           child: Padding(
-            padding: const EdgeInsets.all(8.0),
+            padding: const EdgeInsets.only(left: 12,top: 7,bottom: 7),
             child: CircleAvatar(
               radius: 10,
               backgroundColor: Colors.white,
@@ -63,7 +65,7 @@ class MainPage extends StatelessWidget {
             ),
           ),
           onTap: (){
-            Get.to(()=> const DictionaryPage(tabSelect: DictionaryType.online,));
+            Navigator.push(context, MaterialPageRoute(builder: (context) => DictionaryPage(tabSelect: DictionaryType.online,)));
           },
         ),
       ),

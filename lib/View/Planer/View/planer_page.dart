@@ -211,58 +211,58 @@ class _PlanerPageState extends State<PlanerPage> {
                               clipBehavior: Clip.hardEdge,
                               child:Container(
                                 width: SizeConfig.screenHeight,
-                                padding: const EdgeInsets.only(right: 15,top: 0,left: 15,bottom: 0),
+                                padding: const EdgeInsets.only(right: 15,top: 10,left: 15,bottom: 10),
                                 child:  Row(
-                                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                                  children: [
-                                    Directionality(
-                                      textDirection: TextDirection.rtl,
-                                      child: PopupMenuButton(
-                                        color: ColorsApp.white,
-                                        offset: const Offset(-12, 52), // SET THE (X,Y) POSITION
-                                        iconSize: 35,
-                                        icon: SvgPicture.asset(
-                                          "${ConstAddress.icon}sort.svg",color: ColorsApp.white,height: 25,width: 25,
-                                        ),
-                                        itemBuilder: (context) {
-                                          return [
-                                            PopupMenuItem(
-                                              onTap: (){
-                                                setState(() {
-                                                  isPlanner=true;
-                                                  plannerController.getIsMyPlanners(true);
-                                                });
-                                              },
-                                              child:  Text("پلنرهای من",style: TextStyle(color:Theme.of(context).primaryColor,fontSize: 13,fontFamily: "IranSANS",fontWeight: FontWeight.normal, ),
-                                                textDirection:TextDirection.rtl ,),
-                                            ),
-                                            PopupMenuItem(
-                                              onTap: (){
-                                                setState(() {
-                                                  isPlanner=false;
-                                                  //plannerController.getIsMyPlanners(true);
-                                                });
-                                              },
-
-                                              child:  Text("پلنرهای فروش",style:  TextStyle(color:Theme.of(context).primaryColor,fontSize: 13,fontFamily: "IranSANS",fontWeight: FontWeight.normal, ),
-                                                  textDirection:TextDirection.rtl),
-                                            ),
-                                            PopupMenuItem(
-                                              onTap: (){
-                                                setState(() {
-                                                  isPlanner=false;
-                                                  //plannerController.getIsMyPlanners(true);
-                                                });
-                                              },// DISABLED THIS ITEM
-                                              child:  Text("همه پلنرها",style:  TextStyle(color:Theme.of(context).primaryColor,fontSize: 13,fontFamily: "IranSANS",fontWeight: FontWeight.normal, ),
-                                                  textDirection:TextDirection.rtl ),
-                                            ),
-
-                                          ];
-                                        },
-                                      ),
-                                    ),
-                                    const Text(" لیست پلنرها",textDirection: TextDirection.rtl,
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: const [
+                                    // Directionality(
+                                    //   textDirection: TextDirection.rtl,
+                                    //   child: PopupMenuButton(
+                                    //     color: ColorsApp.white,
+                                    //     offset: const Offset(-12, 52), // SET THE (X,Y) POSITION
+                                    //     iconSize: 35,
+                                    //     icon: SvgPicture.asset(
+                                    //       "${ConstAddress.icon}sort.svg",color: ColorsApp.white,height: 25,width: 25,
+                                    //     ),
+                                    //     itemBuilder: (context) {
+                                    //       return [
+                                    //         PopupMenuItem(
+                                    //           onTap: (){
+                                    //             setState(() {
+                                    //               isPlanner=true;
+                                    //               plannerController.getIsMyPlanners(true);
+                                    //             });
+                                    //           },
+                                    //           child:  Text("پلنرهای من",style: TextStyle(color:Theme.of(context).primaryColor,fontSize: 13,fontFamily: "IranSANS",fontWeight: FontWeight.normal, ),
+                                    //             textDirection:TextDirection.rtl ,),
+                                    //         ),
+                                    //         PopupMenuItem(
+                                    //           onTap: (){
+                                    //             setState(() {
+                                    //               isPlanner=false;
+                                    //               //plannerController.getIsMyPlanners(true);
+                                    //             });
+                                    //           },
+                                    //
+                                    //           child:  Text("پلنرهای فروش",style:  TextStyle(color:Theme.of(context).primaryColor,fontSize: 13,fontFamily: "IranSANS",fontWeight: FontWeight.normal, ),
+                                    //               textDirection:TextDirection.rtl),
+                                    //         ),
+                                    //         PopupMenuItem(
+                                    //           onTap: (){
+                                    //             setState(() {
+                                    //               isPlanner=false;
+                                    //               //plannerController.getIsMyPlanners(true);
+                                    //             });
+                                    //           },// DISABLED THIS ITEM
+                                    //           child:  Text("همه پلنرها",style:  TextStyle(color:Theme.of(context).primaryColor,fontSize: 13,fontFamily: "IranSANS",fontWeight: FontWeight.normal, ),
+                                    //               textDirection:TextDirection.rtl ),
+                                    //         ),
+                                    //
+                                    //       ];
+                                    //     },
+                                    //   ),
+                                    // ),
+                                    Text(" لیست پلنرها",textDirection: TextDirection.rtl,
                                       style: TextStyle(color: ColorsApp.white,fontSize: 14,fontFamily: "IranSANS",fontWeight: FontWeight.bold),),
                                   ],
                                 ),
@@ -282,6 +282,7 @@ class _PlanerPageState extends State<PlanerPage> {
                         ],
                       ),
                     ),
+
 
                   ],
                 ),

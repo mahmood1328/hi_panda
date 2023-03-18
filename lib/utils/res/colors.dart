@@ -34,7 +34,7 @@ class ColorsApp {
   //static const Color colorItemChatGuest = Color(0xFFf9f9f9);
 
   static const Color primaryTextColor = Color(0xFF808080);
-  static const Color textColorSub = Color(0xFFC1C1C1);
+  static const Color textColorSub = Color(0xFFF4F4F4);
   static const Color iconTextField = Color(0xFF979797);
   static const Color backTextField = Color(0xFFF4F4F4);
   static const Color textUnSelected = Color(0xFF727272);
@@ -46,8 +46,8 @@ class ColorsApp {
   static const Color colorSymbolIcon = Color(0xFFC5D7AE);
   static const Color colorBorder = Color(0xFFC5D7AE);
   static const Color secondaryTextColor = Color(0xFFBFBEBE);
-  static const Color onColor = Color(0xFFe1e1e1);
-  static const Color offColor = Color(0xFFc3c3c3);
+  static const Color onColor = Color(0xFFF9F9F9);
+  static const Color offColor = Color(0xFFF4F4F4);
 
   static const Color black = Colors.black;
   static const Color gray = Colors.grey;

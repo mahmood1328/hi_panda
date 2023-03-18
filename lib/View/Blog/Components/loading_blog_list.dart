@@ -16,7 +16,7 @@ class LoadingBlogList extends StatelessWidget {
           height: SizeConfig.screenHeight,
           width: SizeConfig.screenWidth,
           alignment: Alignment.center,
-          margin: const EdgeInsets.only(top: 0),
+          margin: const EdgeInsets.only(top: 10),
           child: ListView(
             children: [
               const SizedBox(height: 0,),
@@ -39,7 +39,6 @@ class LoadingBlogList extends StatelessWidget {
                     )
                 ),
               ),
-
               const SizedBox(height: 15,),
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 0),

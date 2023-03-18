@@ -47,7 +47,7 @@ class _ModalCommentsState extends State<ModalComments> {
                   child: Column(
                     children: <Widget>[
                       Padding(
-                        padding: const EdgeInsets.only(right: 15,top: 30),
+                        padding: const EdgeInsets.only(right: 15,top: 20),
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.end,
                           children: [
@@ -95,7 +95,7 @@ class _ModalCommentsState extends State<ModalComments> {
                             Row(
                               mainAxisAlignment: MainAxisAlignment.end,
                               children: const [
-                                Text("نظرات" , style: TextStyle(fontSize: 15 , fontWeight: FontWeight.bold , color: ColorsApp.colorTextTitle,fontFamily: "IranSANS"),),
+                                Text("دیدگاه" , style: TextStyle(fontSize: 15 , fontWeight: FontWeight.bold , color: ColorsApp.colorTextTitle,fontFamily: "IranSANS"),),
                               ],
                             ),
                           ],
@@ -161,11 +161,11 @@ class _ModalCommentsState extends State<ModalComments> {
                                             height: 30,width: 30,
                                             //padding:const EdgeInsets.all(3),
 
-                                            child: SvgPicture.asset("${ConstAddress.icon}closeCircle.svg",),
+                                            child: SvgPicture.asset("${ConstAddress.icon}closeCircle.svg",color: ColorsApp.colorTextNormal,),
                                           ),
                                         ),
                                         Text(
-                                          "ارسال نظر",
+                                          "ارسال دیدگاه",
                                           style: TextStyle(
                                               fontWeight: FontWeight.bold,
                                               fontFamily: 'IRANSans',
@@ -204,25 +204,25 @@ class _ModalCommentsState extends State<ModalComments> {
                                               border: OutlineInputBorder(
                                                 borderRadius: BorderRadius.circular(8.0),
                                                 borderSide: const BorderSide(
-                                                  color: Color(0xFF6a7dca),
+                                                  color: Color(0xffF9F9F9),
                                                   width: 0.7,
                                                 ),
                                               ),
                                               focusedBorder: OutlineInputBorder(
                                                 borderSide: const BorderSide(
-                                                  color: Color(0xFF6a7dca),
+                                                  color: Color(0xffF9F9F9),
                                                   width: 0.7,
                                                 ),
                                                 borderRadius: BorderRadius.circular(8.0),
                                               ),
                                               enabledBorder: OutlineInputBorder(
                                                 borderSide: const BorderSide(
-                                                  color: Color(0xFF6a7dca),
+                                                  color: Color(0xffF9F9F9),
                                                   width: 0.7,
                                                 ),
                                                 borderRadius: BorderRadius.circular(8.0),
                                               ),
-                                              hintText: "...نظر",
+                                              hintText: "...دیدگاه",
                                               hintStyle: const TextStyle(
                                                   fontSize: 15.0,
                                                   fontWeight: FontWeight.normal,

@@ -128,6 +128,7 @@ class BlogController extends GetxController{
             "  $typeValue با موفقیت انجام شد ",
           );
           controllerComment.text="";
+          listPosts(1,10,"");
         }else{
           removeProgress();
           ShowSnackBar().showSnackBar(

@@ -10,6 +10,7 @@ import 'package:modal_bottom_sheet/modal_bottom_sheet.dart';
 import '../../../Network/service_helper.dart';
 import '../../../Repository/planer.dart';
 import '../../../Widget/modal_course_audio.dart';
+import '../../../Widget/modal_course_book.dart';
 import '../../../Widget/modal_course_file.dart';
 import '../../../Widget/modal_course_rest.dart';
 import '../../../Widget/modal_course_testing.dart';
@@ -304,7 +305,7 @@ class PlannerController extends GetxController{
       try {
           removeProgress();
           plannerSessionItemDetailModel=value;
-          if (type == 4) {
+          if (type == 4||type == 107) {
             showCupertinoModalBottomSheet(
                 expand: false,
                 context: context,
@@ -380,7 +381,29 @@ class PlannerController extends GetxController{
                 ColorsApp.white,
                 builder: (BuildContext
                 context) =>
-                 ModalCourseFile(id: id, title: value.title, url: value.url, des: value.descript,));
+                    ModalCourseFile(title: value.title, id: id, url: value.url, des: value.descript,));
+          }
+          else if (type == 105) {
+            showCupertinoModalBottomSheet(
+                expand: false,
+                context: context,
+                useRootNavigator: true,
+                backgroundColor:
+                ColorsApp.white,
+                builder: (BuildContext
+                context) =>
+                    DetailCoursesBookAndPdfPage(getBookAndPdfDetailModel: plannerSessionItemDetailModel!, image: plannerSessionItemDetailModel!.photoShow,));
+          }
+          else if (type == 106) {
+            showCupertinoModalBottomSheet(
+                expand: false,
+                context: context,
+                useRootNavigator: true,
+                backgroundColor:
+                ColorsApp.white,
+                builder: (BuildContext
+                context) =>
+                    DetailCoursesBookAndPdfPage(getBookAndPdfDetailModel: plannerSessionItemDetailModel!, image: plannerSessionItemDetailModel!.photoShow,));
           }
       } catch (e) {
         removeProgress();

@@ -26,7 +26,7 @@ class BlogScreen extends StatelessWidget {
               child: Stack(
                 children: [
                   Container(
-                    padding: const EdgeInsets.only(top: 70),
+                    padding: const EdgeInsets.only(top: 50),
                     height: SizeConfig.screenHeight,
                     width: SizeConfig.screenWidth,
                     child: RefreshIndicator(
@@ -36,7 +36,7 @@ class BlogScreen extends StatelessWidget {
                           physics: const BouncingScrollPhysics(),
                         controller: blogController.scrollController,
                           children: blogController.listPostsModel!.posts.map((e) => Container(
-                            padding: const EdgeInsets.only(top: 10),
+                            padding: const EdgeInsets.only(top: 20),
                             child: ItemBlogComponents( post: e,),
                           )).toList()
                       ),

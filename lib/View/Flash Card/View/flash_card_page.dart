@@ -98,7 +98,7 @@ class FlashCardPage extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(vertical: 20),
                       height:4,
                       width:SizeConfig.screenWidth,
-                      color: ColorsApp.colorTextClock,
+                      color: ColorsApp.backTextField,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 0),
@@ -108,10 +108,10 @@ class FlashCardPage extends StatelessWidget {
                           Directionality(
                             textDirection: TextDirection.rtl,
                             child: Tooltip(
-                              child: SvgPicture.asset("${ConstAddress.icon}info2.svg",height: 20,width: 20,color: ColorsApp.red,),
+                              child: SvgPicture.asset("${ConstAddress.icon}info2.svg",height: 20,width: 20,color: ColorsApp.iconTextField,),
                               message: "رنگ ها میزان سطح فلش کارت ها را مشخص می کنند \n رنگ قرمز سطح بالا \n رنگ سبز متوسط \n رنگ زرد پایین",
-                              decoration: BoxDecoration(color: ColorsApp.greenBlueLight,borderRadius: BorderRadius.all(Radius.circular(20))),
-                              textStyle: TextStyle(fontSize: 14 , fontWeight: FontWeight.bold , color: ColorsApp.colorTextNormal,fontFamily: "IranSANS"),
+                              decoration: BoxDecoration(color: ColorsApp.greenBlueLight,borderRadius: BorderRadius.all(Radius.circular(10))),
+                              textStyle: TextStyle(fontSize: 13 , fontWeight: FontWeight.normal , color: ColorsApp.colorTextNormal,fontFamily: "IranSANS"),
                             ),
                           ),
                           const SizedBox(width: 5,),
@@ -135,7 +135,7 @@ class FlashCardPage extends StatelessWidget {
                       margin: const EdgeInsets.symmetric(vertical: 20),
                       height:4,
                       width:SizeConfig.screenWidth,
-                      color: ColorsApp.colorTextClock,
+                      color: ColorsApp.backTextField,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(horizontal: 20,vertical: 0),
@@ -145,10 +145,10 @@ class FlashCardPage extends StatelessWidget {
                           Directionality(
                             textDirection: TextDirection.rtl,
                             child: Tooltip(
-                              child: SvgPicture.asset("${ConstAddress.icon}info2.svg",height: 20,width: 20,color: ColorsApp.red,),
+                              child: SvgPicture.asset("${ConstAddress.icon}info2.svg",height: 20,width: 20,color: ColorsApp.iconTextField,),
                               message: "رنگ ها میزان سطح فلش کارت ها را مشخص می کنند \n رنگ قرمز سطح بالا \n رنگ سبز متوسط \n رنگ زرد پایین",
-                              decoration: BoxDecoration(color: ColorsApp.greenBlueLight,borderRadius: BorderRadius.all(Radius.circular(20))),
-                              textStyle: TextStyle(fontSize: 14 , fontWeight: FontWeight.bold , color: ColorsApp.colorTextNormal,fontFamily: "IranSANS"),
+                              decoration: BoxDecoration(color: ColorsApp.greenBlueLight,borderRadius: BorderRadius.all(Radius.circular(10))),
+                              textStyle: TextStyle(fontSize: 13 , fontWeight: FontWeight.normal , color: ColorsApp.colorTextNormal,fontFamily: "IranSANS"),
                             ),
                           ),
                           const SizedBox(width: 5,),

@@ -17,6 +17,7 @@ class GetKeywordModel {
     required this.text,
     required this.photo,
     required this.sentence,
+    required this.dictionary,
     required this.rotate,
   });
 
@@ -26,6 +27,7 @@ class GetKeywordModel {
   final String text;
   final String photo;
   final String sentence;
+  final String? dictionary;
   final bool rotate;
 
   factory GetKeywordModel.fromJson(Map<String, dynamic> json) => GetKeywordModel(
@@ -35,6 +37,7 @@ class GetKeywordModel {
     text: json["text"],
     photo: json["photo"],
     sentence: json["sentence"],
+    dictionary: json["dictionary"]!=null?json["dictionary"]:null,
     rotate: json["rotate"],
   );
 
@@ -45,6 +48,7 @@ class GetKeywordModel {
     "text": text,
     "photo": photo,
     "sentence": sentence,
+    "dictionary": dictionary,
     "rotate": rotate,
   };
 }

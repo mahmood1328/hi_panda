@@ -121,10 +121,8 @@ class _ModalAddFlashCardState extends State<ModalAddFlashCard> {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-
                       GestureDetector(
-
-                          child: SvgPicture.asset(ConstAddress.icon+"image2.svg",height: 40,width: 40,),
+                          child: SvgPicture.asset(ConstAddress.icon+"image3.svg",height: 40,width: 40,color:flashCardController.idUpload.value?ColorsApp.iconTextField: ColorsApp.iconTextField,),
                       onTap: ()async{
                         FilePickerResult? result = await FilePicker.platform.pickFiles(type: FileType.any);
                         if (result != null) {
@@ -157,6 +155,7 @@ class _ModalAddFlashCardState extends State<ModalAddFlashCard> {
                     ],
                   ),
                 ),
+                SizedBox(height: 5,),
                 Padding(
                   padding: const EdgeInsets.only(right: 50,top: 10,bottom: 10),
                   child: Row(
@@ -173,6 +172,7 @@ class _ModalAddFlashCardState extends State<ModalAddFlashCard> {
                     ],
                   ),
                 ),
+                SizedBox(height: 5,),
                 Obx(() => Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 50),
                   child: Row(
@@ -184,7 +184,7 @@ class _ModalAddFlashCardState extends State<ModalAddFlashCard> {
                         },
                         child: Column(
                           children: [
-                            Image.asset(ConstAddress.image+"lol.png",height: 50,width: 50,color: flashCardController.levelNumber.value==3?
+                            Image.asset(ConstAddress.image+"lol.png",height: 40,width: 40,color: flashCardController.levelNumber.value==3?
                             ColorsApp.primaryLight2:ColorsApp.iconTextField,),
                             Text(
                               "سخت",
@@ -204,7 +204,7 @@ class _ModalAddFlashCardState extends State<ModalAddFlashCard> {
                         },
                         child: Column(
                           children: [
-                            Image.asset(ConstAddress.image+"happy.png",height: 50,width: 50,color: flashCardController.levelNumber.value==2?
+                            Image.asset(ConstAddress.image+"happy.png",height: 40,width: 40,color: flashCardController.levelNumber.value==2?
                             ColorsApp.primaryLight2:ColorsApp.iconTextField,),
                             Text(
                               "متوسط",
@@ -225,7 +225,7 @@ class _ModalAddFlashCardState extends State<ModalAddFlashCard> {
                         child: Column(
                           children: [
 
-                            Image.asset(ConstAddress.image+"sleeping.png",height: 50,width: 50,color: flashCardController.levelNumber.value==1?
+                            Image.asset(ConstAddress.image+"sleeping.png",height: 40,width: 40,color: flashCardController.levelNumber.value==1?
                             ColorsApp.primaryLight2:ColorsApp.iconTextField,),
                             Text(
                               "آسان",
